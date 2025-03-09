@@ -1,0 +1,18 @@
+/attendance_system
+  ├── backend/  
+  │   ├── app.py  (Flask API)
+  │   ├── auth.py  (Authentication)
+  │   ├── config.py  (Database & Secret Keys)
+  │   ├── database/
+  │   │   ├── connection.py  (MongoDB connection)
+  │   │   ├── student_model.py  (Student Schema)
+  │   │   ├── attendance_model.py  (Attendance Schema)
+  │   │   ├── user_model.py  (Teacher Schema)
+  │   ├── requirements.txt
+  ├── frontend/  
+  │   ├── index.html  (Login & Dashboard)
+  │   ├── app.js  (Frontend logic)
+  │   ├── styles.css  (Styling)
+  ├── Dockerfile  (For deployment)
+  ├── docker-compose.yml  (For containerization)
+  ├── README.md

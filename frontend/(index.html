@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance System</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h2>Student Attendance System</h2>
+
+    <label for="students">Select Student:</label>
+    <select id="students"></select>
+
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" placeholder="Enter subject">
+
+    <button onclick="markAttendance('Present')">Mark Present</button>
+    <button onclick="markAttendance('Absent')">Mark Absent</button>
+
+    <h3>Attendance Records</h3>
+    <ul id="attendance-list"></ul>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+select,
+input,
+button {
+    margin: 10px;
+    padding: 8px;
+}

@@ -1,0 +1,98 @@
+### **📌 Attendance System (3-Tier Architecture)**
+A **Flask + MongoDB** attendance tracking system with teacher authentication and subject-based attendance.
+
+![Project Screenshot](https://via.placeholder.com/800x400?text=Attendance+System+Dashboard)  
+
+---
+
+## **📂 Folder Structure**
+```
+/attendance_system
+  ├── backend/  
+  │   ├── app.py  (Flask API)
+  │   ├── auth.py  (Authentication)
+  │   ├── config.py  (Database & Secret Keys)
+  │   ├── database/
+  │   │   ├── connection.py  (MongoDB connection)
+  │   │   ├── student_model.py  (Student Schema)
+  │   │   ├── attendance_model.py  (Attendance Schema)
+  │   │   ├── user_model.py  (Teacher Schema)
+  │   ├── requirements.txt
+  ├── frontend/  
+  │   ├── index.html  (Login & Dashboard)
+  │   ├── app.js  (Frontend logic)
+  │   ├── styles.css  (Styling)
+  ├── Dockerfile  (For deployment)
+  ├── docker-compose.yml  (For containerization)
+  ├── README.md
+```
+
+---
+
+## **🚀 Features**
+✅ **Secure Teacher Login** with JWT authentication  
+✅ **Track Attendance by Subject**  
+✅ **MongoDB Database** for storing data  
+✅ **REST API** with Flask  
+✅ **HTML, CSS, JavaScript** for Frontend  
+✅ **Dockerized for Easy Deployment**  
+
+---
+
+## **🔧 Setup & Installation**
+
+### **1️⃣ Install Dependencies**
+**Backend**
+```sh
+cd backend
+pip install -r requirements.txt
+```
+
+**Frontend**
+No installation required (just open `index.html` in a browser).
+
+---
+
+### **2️⃣ Run Locally**
+#### **With Python**
+```sh
+cd backend
+python app.py
+```
+
+#### **With Docker**
+```sh
+docker-compose up -d
+```
+
+---
+
+## **🔗 API Endpoints**
+| Endpoint             | Method | Description                    |
+|----------------------|--------|--------------------------------|
+| `/auth/register`     | POST   | Register a new teacher        |
+| `/auth/login`        | POST   | Teacher login (JWT Token)     |
+| `/students`          | GET    | Get all students              |
+| `/attendance`        | POST   | Mark student attendance       |
+
+---
+
+## **🛠 Deployment**
+### **Option 1: Docker**
+```sh
+docker-compose up -d
+```
+
+### **Option 2: Railway**
+1. Deploy **MongoDB** on **[Railway](https://railway.app)**
+2. Deploy Flask API as a **Docker container**
+
+### **Option 3: AWS EC2**
+1. Launch **Ubuntu EC2 instance**
+2. Install **Docker & MongoDB**
+3. Run:
+   ```sh
+   docker-compose up -d
+   ```
+
+---
