@@ -48,6 +48,26 @@ async function markAttendance(status) {
     }
 }
 
+// Delete Attendance
+async function deleteAttendance(record_id) {
+    try {
+        let response = await fetch(`${API_URL}/attendance/${record_id}`, {
+            method: "DELETE"
+        });
+
+        if (!response.ok) throw new Error("Failed to delete attendance record");
+        let result = await response.json();
+        alert(result.message);
+
+        // Refresh attendance list
+        let student_id = document.getElementById("students").value;
+        fetchAttendance(student_id);
+    } catch (error) {
+        console.error("Error deleting attendance record:", error);
+        alert("Error deleting attendance record. Please try again later.");
+    }
+}
+
 // Fetch attendance records
 async function fetchAttendance(student_id) {
     try {
@@ -61,6 +81,13 @@ async function fetchAttendance(student_id) {
         records.forEach(record => {
             let li = document.createElement("li");
             li.textContent = `${record.date} - ${record.subject} - ${record.status}`;
+            
+            // Add delete button
+            let deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.onclick = () => deleteAttendance(record.record_id);
+            li.appendChild(deleteButton);
+
             list.appendChild(li);
         });
     } catch (error) {
@@ -69,5 +96,46 @@ async function fetchAttendance(student_id) {
     }
 }
 
+// Handle npm audit fix
+async function handleNpmAuditFix() {
+    try {
+        let response = await fetch(`${API_URL}/npm-audit-fix`, {
+            method: "POST"
+        });
+
+        if (!response.ok) throw new Error("Failed to run npm audit fix");
+        let result = await response.json();
+        alert(result.message);
+    } catch (error) {
+        console.error("Error running npm audit fix:", error);
+        alert("Error running npm audit fix. Please try again later.");
+    }
+}
+
 // Load students on page load
 window.onload = loadStudents;
+
+// Add event listener for npm audit fix button
+document.getElementById("npm-audit-fix-btn").addEventListener("click", handleNpmAuditFix);
+
+// Ensure script is loaded correctly
+console.log("Script loaded successfully");
+
+document.getElementById('employee-tab').addEventListener('click', function() {
+    setActiveTab('employee');
+});
+
+document.getElementById('manager-tab').addEventListener('click', function() {
+    setActiveTab('manager');
+});
+
+function setActiveTab(tab) {
+    document.getElementById('employee-tab').classList.remove('active');
+    document.getElementById('manager-tab').classList.remove('active');
+    
+    if (tab === 'employee') {
+        document.getElementById('employee-tab').classList.add('active');
+    } else {
+        document.getElementById('manager-tab').classList.add('active');
+    }
+}

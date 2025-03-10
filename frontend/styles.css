@@ -1,4 +1,6 @@
 body {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 20px;
@@ -9,4 +11,62 @@ input,
 button {
     margin: 10px;
     padding: 8px;
+}
+
+.login-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    background: #f0f0f0;
+    border: none;
+    outline: none;
+}
+
+.tab.active {
+    background: #e0e0e0;
+    border-bottom: 2px solid green;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkgreen;
 }

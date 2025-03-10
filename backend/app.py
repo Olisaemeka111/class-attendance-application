@@ -1,6 +1,10 @@
-# backend/app.py
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from flask import Flask, jsonify, request
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token
+# Update the import paths
 from database.connection import db
 from database.student_model import Student
 from database.attendance_model import Attendance
@@ -16,6 +20,10 @@ db.connect()
 @app.route('/')
 def home():
     return jsonify({"message": "Attendance System API Running"})
+
+@app.route('/health')
+def health():
+    return jsonify({"status": "healthy"})
 
 @app.route('/auth/register', methods=['POST'])
 def register():
